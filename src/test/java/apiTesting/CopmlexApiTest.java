@@ -1,10 +1,13 @@
 package apiTesting;
 
+import org.testng.annotations.Test;
+
 import Files.JsonParsing.ComplexPayloads;
 import io.restassured.path.json.JsonPath;
 
 public class CopmlexApiTest {
-	public static void main(String[] args) {
+	@Test
+	public void apiTest(){
 		JsonPath js = new JsonPath(ComplexPayloads.ComplexPayLoads());
 		int Sum = 0;
 		System.out.println(js.getInt("courses.size()")); //Print No of courses returned by API
@@ -16,7 +19,7 @@ public class CopmlexApiTest {
 				System.out.println(js.getInt("courses["+i+"].copies")); //Print no of copies sold by RPA Course
 			Sum += (js.getInt("courses["+i+"].price")*js.getInt("courses["+i+"].copies"));
 		}
-		
+
 		System.out.println(Sum == js.getInt("dashboard.purchaseAmount")? 
 				"Sum of all Course prices matches with Purchase Amount": "Sum of all Course prices not matches with Purchase Amount"); //Verify if Sum of all Course prices matches with Purchase Amount
 	}
