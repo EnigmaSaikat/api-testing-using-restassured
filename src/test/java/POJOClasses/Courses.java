@@ -4,25 +4,26 @@ import java.util.List;
 
 public class Courses {
 	private List<WebAutomation> webAutomation;
-	private List<ApiAutomation> apiAutomation;
-	private List<MobileAutomation> mobileAutomation;
+	private List<ApiAutomation> api;
+	private List<MobileAutomation> mobile;
+	
 	public List<WebAutomation> getWebAutomation() {
 		return webAutomation;
 	}
-	public void setWebAutomation(List<WebAutomation> webAutomation) {
+	public void setWeb(List<WebAutomation> webAutomation) {
 		this.webAutomation = webAutomation;
 	}
-	public List<ApiAutomation> getApiAutomation() {
-		return apiAutomation;
+	public List<ApiAutomation> getApi() {
+		return api;
 	}
-	public void setApiAutomation(List<ApiAutomation> apiAutomation) {
-		this.apiAutomation = apiAutomation;
+	public void setApi(List<ApiAutomation> api) {
+		this.api = api;
 	}
-	public List<MobileAutomation> getMobileAutomation() {
-		return mobileAutomation;
+	public List<MobileAutomation> getMobile() {
+		return mobile;
 	}
-	public void setMobileAutomation(List<MobileAutomation> mobileAutomation) {
-		this.mobileAutomation = mobileAutomation;
+	public void setMobile(List<MobileAutomation> mobile) {
+		this.mobile = mobile;
 	}
 	
 	
