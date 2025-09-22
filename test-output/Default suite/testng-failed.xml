@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="apiTesting.SerializationTesting">
+      <class name="apiTesting.SpecBuilderAPI">
         <methods>
-          <include name="SerializationTes"/>
+          <include name="specAPITest"/>
         </methods>
-      </class> <!-- apiTesting.SerializationTesting -->
+      </class> <!-- apiTesting.SpecBuilderAPI -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

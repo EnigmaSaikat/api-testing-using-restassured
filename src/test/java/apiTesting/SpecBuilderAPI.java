@@ -4,17 +4,21 @@ import org.testng.annotations.Test;
 
 import POJOClasses.Location;
 import POJOClasses.addPlace;
-import io.restassured.RestAssured;
-
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class SerializationTesting {
+import io.restassured.specification.RequestSpecification;
+
+public class SpecBuilderAPI {
 	@Test
-	public void SerializationTest() {
-		RestAssured.baseURI = "https://rahulshettyacademy.com";
+	public void specAPITest() {
+		RequestSpecification req = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com").addQueryParam("key", "qaclick123")
+		.setContentType(ContentType.JSON).build();
 		addPlace add = new addPlace();
 		add.setAccuracy(50);
 		add.setName("Frontline house");
@@ -28,7 +32,8 @@ public class SerializationTesting {
 		l.setLat(-38.383494);
 		l.setLng(33.427362);
 		add.setLocation(l);
-		given().log().all().queryParam("key", "qaclick123").body(add).when().post("/maps/api/place/add/json")
-				.then().assertThat().statusCode(200).extract().response().asString();
+		RequestSpecification res = given().spec(req).body(add).log().all();
+			res.when().post("/maps/api/place/add/json").then().log().all()
+				.assertThat().statusCode(200).extract().response().asString();
 	}
 }
