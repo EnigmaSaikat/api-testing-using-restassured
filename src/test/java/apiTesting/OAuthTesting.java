@@ -23,7 +23,7 @@ public class OAuthTesting {
 		
 		JsonPath jsonPath = new JsonPath(response);
 		
-		String accessToken = jsonPath.getString("refresh_token");
+		String accessToken = jsonPath.getString("access_token");
 		System.out.println("access token is: "+accessToken);
 		
 		GetCourse gc = given()
